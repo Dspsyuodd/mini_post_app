@@ -28,6 +28,7 @@ class _PostPageViewState extends State<PostPageView> {
   @override
   Widget build(BuildContext context) {
     return PageView(
+      physics: const NeverScrollableScrollPhysics(),
       controller: context.read<PostPageController>().pageController,
       children: [
         const PostsScreen(),

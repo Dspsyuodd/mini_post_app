@@ -2,6 +2,19 @@
 
 Скачать apk можно по [ссылке](https://drive.google.com/file/d/1vtN8paO6BimMXKtDWRG9LIe8XCp-a-Jj/view?usp=sharing)
 
+Для запуска:
+Поставить [flutter](https://docs.flutter.dev/get-started/install)
+
+Если запускать через VSCode, нужны расширения Dart и Flutter.
+После установки расширений, если открыть проект, vscode предложит поставить необходимые для билда sdk
+
+Через VSCode открыть весь проект, выбрать эмулятор и запустить сборку
+
+Через XCode открыть папку ios и запустить сборку
+
+
+
+
 ## [Core](lib/src/core/)
 Общий код для приложения и утилиты
 
