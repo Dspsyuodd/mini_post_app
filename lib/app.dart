@@ -1,7 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_post_app/app_router.dart';
-import 'package:mini_post_app/src/api/post_api.dart';
+import 'package:mini_post_app/src/di.dart';
 import 'package:mini_post_app/src/domain/post_page_controller.dart';
 import 'package:mini_post_app/src/domain/post_provider.dart';
 import 'package:mini_post_app/src/ui/pages/post_main_screen.dart';
@@ -20,15 +19,11 @@ class App extends StatelessWidget {
       onGenerateRoute: AppRouter.onGenerateRoute,
       home: MultiProvider(
         providers: [
-          Provider(create: (context) => Dio()),
-          Provider<PostApi>(
-            create: (context) => PostApiImpl(context.read()),
-          ),
           ChangeNotifierProvider(
-            create: (context) => PostProvider(context.read()),
+            create: (context) => sl<PostProvider>(),
           ),
           Provider(
-            create: (context) => PostPageController(),
+            create: (context) => sl<PostPageController>(),
           ),
         ],
         child: const PostMainScreen(),

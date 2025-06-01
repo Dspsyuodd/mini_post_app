@@ -1,16 +1,29 @@
 # mini_post_app
 
-A new Flutter project.
+Скачать apk можно по [ссылке](https://drive.google.com/file/d/1vtN8paO6BimMXKtDWRG9LIe8XCp-a-Jj/view?usp=sharing)
 
-## Getting Started
+## [Core](lib/src/core/)
+Общий код для приложения и утилиты
 
-This project is a starting point for a Flutter application.
+## [Api](lib/src/api/)
+Api calls, на Dio
 
-A few resources to get you started if this is your first Flutter project:
+## [Domain](lib/src/domain/)
+PostProvider - загрузка постов и управление состоянием
+PostPageController - переключение страниц через BottomNavi
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## [Models](lib/src/models/)
+Используемые сущности
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## [DI](lib/src/di.dart)
+Зависимости на get_it
+
+## [Ui](lib/src/ui/)
+### [Pages](lib/src/ui/pages/)
+Экраны приложения
+### [Widgets](lib/src/ui/widgets/)
+Виджеты
+
+
+## [Tests](test/lib/)
+Тесты на mokito
