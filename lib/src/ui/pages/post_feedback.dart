@@ -31,7 +31,7 @@ class _PostFeedbackState extends State<PostFeedback>
           _PostFeedbackTextForm(
             formKey: _nameFormKey,
             hintText: 'Имя',
-            validator: _validateEmty,
+            validator: _validateName,
             textInputAction: TextInputAction.next,
           ),
           _PostFeedbackTextForm(
@@ -63,6 +63,24 @@ class _PostFeedbackState extends State<PostFeedback>
     return null;
   }
 
+  String? _validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Пожалуйста, заполните поле';
+    }
+    value = value.trimRight();
+    if (!_isOnlyLetters(value)) {
+      return 'Имя должно состоять только из букв';
+    }
+    final firstChar = value[0];
+    final isUpper =
+        firstChar == firstChar.toUpperCase() &&
+        firstChar != firstChar.toLowerCase();
+    if (!isUpper) {
+      return 'Имя должно начинаться с заглавной буквы';
+    }
+    return null;
+  }
+
   String? _validateEmail(String? email) {
     if (email == null || email.isEmpty) {
       return 'Пожалуйста, введите email';
@@ -71,6 +89,10 @@ class _PostFeedbackState extends State<PostFeedback>
       return 'Пожалуйста, введите корректный email';
     }
     return null;
+  }
+
+  bool _isOnlyLetters(String text) {
+    return RegExp(r'^[^\W\d_]+$', unicode: true).hasMatch(text);
   }
 
   void _onSubmit() {

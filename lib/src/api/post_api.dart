@@ -13,7 +13,9 @@ class PostApiImpl implements PostApi {
 
   @override
   Future<List<Post>> getPosts() async {
-    final response = await _dio.get(ApiPaths.postApi);
+    final response = await _dio.get(
+      ApiPaths.postApi,
+    );
 
     return (response.data as List)
         .cast<Map<String, dynamic>>()
